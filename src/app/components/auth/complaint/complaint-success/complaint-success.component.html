@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="header">
+      <div class="logo">Quick EBill</div>
+      <div class="menu">
+        <a routerLink="/viewbill">Home</a>
+        <a routerLink="/viewbill">Pay Bill</a>
+        <a routerLink="/register-complaint">Register Complaint</a>
+        <a routerLink="/complaint-status">Complaint Status</a>
+      </div>
+      <div class="user-info">
+        <span>Welcome {{ username }}</span>
+        <button (click)="logout()">Logout</button>
+      </div>
+    </div>
+  
+    <div class="content">
+      <h2>Complaint Registered Successfully!</h2>
+      <p>Your complaint has been registered with the following details:</p>
+      <div class="complaint-details" *ngIf="complaint">
+        <p><strong>Complaint ID:</strong> {{ complaint.id }}</p>
+        <p><strong>Complaint Type:</strong> {{ complaint.type }}</p>
+        <p><strong>Category:</strong> {{ complaint.category }}</p>
+        <p><strong>Consumer Number:</strong> {{ complaint.consumerNumber }}</p>
+        <p><strong>Problem Description:</strong> {{ complaint.description }}</p>
+        <p><strong>Mobile Number:</strong> {{ complaint.mobile }}</p>
+      </div>
+      <button (click)="goToStatus()">View Complaint Status</button>
+    </div>
+  </div>
+  

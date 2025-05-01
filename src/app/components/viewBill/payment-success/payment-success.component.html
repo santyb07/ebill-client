@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="header">
+      <div class="logo">Quick EBill</div>
+      <div class="menu">
+        <a routerLink="/viewbill">Home</a>
+        <a routerLink="/viewbill">Pay Bill</a>
+        <a routerLink="/register-complaint">Register Complaint</a>
+        <a routerLink="/complaint-status">Complaint Status</a>
+      </div>
+      <div class="user-info">
+        <span>Welcome {{ username }}</span>
+        <button (click)="logout()">Logout</button>
+      </div>
+    </div>
+  
+    <div class="content">
+      <h2>Payment Done Successfully.</h2>
+      <p>Total amount paid: <span>{{ totalAmountPaid | currency:'INR' }}</span></p>
+  
+      <h3>KSEB ONLINE PAYMENT - TRANSACTION DETAILS</h3>
+  
+      <table>
+        <thead>
+          <tr>
+            <th>Transaction Number</th>
+            <th>Receipt Number</th>
+            <th>Transaction Date</th>
+            <th>Transaction Type</th>
+            <th>Payment Type</th>
+            <th>Payment Gateway</th>
+            <th>Section</th>
+            <th>Consumer Number</th>
+            <th>Paid Amount</th>
+            <th>Transaction Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ transaction.transactionNumber }}</td>
+            <td>{{ transaction.receiptNumber }}</td>
+            <td>{{ transaction.transactionDate }}</td>
+            <td>{{ transaction.transactionType }}</td>
+            <td>{{ transaction.paymentType }}</td>
+            <td>{{ transaction.paymentGateway }}</td>
+            <td>{{ transaction.section }}</td>
+            <td>{{ transaction.consumerNumber }}</td>
+            <td>{{ transaction.paidAmount | currency:'INR' }}</td>
+            <td>{{ transaction.transactionType2 }}</td>
+          </tr>
+        </tbody>
+      </table>
+  
+      <div class="buttons">
+        <button (click)="goToHome()">Back to Home</button>
+        <button (click)="downloadReceipt()">Download</button>
+      </div>
+    </div>
+  </div>
+  

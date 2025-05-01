@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="header">
+      <div class="logo">Quick EBill</div>
+      <div class="menu">
+        <a routerLink="/view-bill" class="active">Home</a>
+        <a routerLink="/view-bill">Pay Bill</a>
+        <a routerLink="/register-complaint">Register Complaint</a>
+        <a routerLink="/complaint-status">Complaint Status</a>
+      </div>
+      <div class="user-info">
+        <span id="welcomeMessage">Welcome {{ username }}</span>
+        <button (click)="logout()">Logout</button>
+      </div>
+    </div>
+  
+    <div class="content">
+      <h2>View Bill & Pay</h2>
+  
+      <table>
+        <thead>
+          <tr>
+            <th>Consumer Number</th>
+            <th>Select</th>
+            <th>Due Amount (₹)</th>
+            <th>Payable (₹)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let bill of bills">
+            <td>{{ bill.consumerNumber }}</td>
+            <td>
+              <input
+                type="checkbox"
+                [value]="bill"
+                (change)="updateSelection($event, bill)"
+              />
+            </td>
+            <td>{{ bill.dueAmount }}</td>
+            <td>{{ bill.payable }}</td>
+          </tr>
+        </tbody>
+      </table>
+  
+      <div class="total-payable">
+        Total Amount Payable: <span>{{ totalPayable.toFixed(2) }}</span> ₹
+      </div>
+  
+      <button (click)="proceedToPay()">Proceed to Pay</button>
+    </div>
+  </div>
+  

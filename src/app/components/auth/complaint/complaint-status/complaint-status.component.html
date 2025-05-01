@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="header">
+      <div class="logo">Quick EBill</div>
+      <div class="menu">
+        <a routerLink="/viewbill">Home</a>
+        <a routerLink="/viewbill">Pay Bill</a>
+        <a routerLink="/register-complaint">Register Complaint</a>
+        <a routerLink="/complaint-status">Complaint Status</a>
+      </div>
+      <div class="user-info">
+        <span>Welcome {{ username }}</span>
+        <button (click)="logout()">Logout</button>
+      </div>
+    </div>
+  
+    <div class="content">
+      <h2>Check Your Complaint Here</h2>
+  
+      <div class="complaint-form">
+        <div class="form-group">
+          <label for="complaintNumber">Complaint Number:</label>
+          <input class="inputComplaintNumber" type="text" [(ngModel)]="complaintNumber" placeholder="Complaint Number" />
+          <span class="error-message">{{ complaintNumberError }}</span>
+        </div>
+  
+        <div class="form-buttons">
+          <button (click)="reset()">Reset</button>
+          <button (click)="getComplaintStatus()">Get Complaint Status</button>
+        </div>
+      </div>
+  
+      <div *ngIf="complaintDetails" class="complaint-details">
+        <h3>Complaint Details</h3>
+        <p><strong>Complaint Type:</strong> {{ complaintDetails.complaintType }}</p>
+        <p><strong>Category:</strong> {{ complaintDetails.category }}</p>
+        <p><strong>Consumer Number:</strong> {{ complaintDetails.consumerNumber }}</p>
+        <p><strong>Problem Description:</strong> {{ complaintDetails.problemDescription }}</p>
+        <p><strong>Mobile Number:</strong> {{ complaintDetails.mobileNumber }}</p>
+        <p><strong>Address:</strong> {{ complaintDetails.address }}</p>
+      </div>
+    </div>
+  </div>
+  

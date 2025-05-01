@@ -1,0 +1,136 @@
+
+.container {
+    background-color: white;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 900px;
+    box-sizing: border-box;
+    margin: 20px auto;
+}
+
+.register-container {
+    text-align: left;
+}
+
+.register-heading, .section-title h3 {
+    color: #3498db;
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    width: 48%; /* Adjusted width */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, select {
+    width: calc(100% - 12px);
+    padding: 10px; /* Increased padding */
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px; /* Increased font size */
+}
+
+.buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+button {
+    padding: 12px 24px; /* Increased button padding */
+    margin: 0 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px; /* Increased button font size */
+}
+
+#registerButton {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#resetButton {
+    background-color: #f0f0f0;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.8em;
+    display: block;
+    margin-top: -5px;
+    margin-bottom: 10px;
+}
+.notify-message {
+    color: gray;
+    font-size: 0.8em;
+    display: block;
+    margin-top: -5px;
+    margin-bottom: 10px;
+}
+
+.section-title {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+
+
+
+.login-container {
+    text-align: left;
+}
+
+.login-heading {
+    color: #3498db;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+input[type="text"], input[type="password"] {
+    width: calc(100% - 12px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Password visibility styles */
+.password-group {
+    position: relative; /* Add relative positioning */
+}
+
+.password-input-container {
+    display: flex;
+    align-items: center;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    user-select: none;
+}

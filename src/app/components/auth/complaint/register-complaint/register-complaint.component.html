@@ -1,0 +1,93 @@
+<div class="container">
+    <div class="header">
+      <div class="logo">Quick EBill</div>
+      <div class="menu">
+        <a routerLink="/view-bill">Home</a>
+        <a routerLink="/view-bill">Pay Bill</a>
+        <a routerLink="/register-complaint">Register Complaint</a>
+        <a routerLink="/complaint-status">Complaint Status</a>
+      </div>
+      <div class="user-info">
+        <span>Welcome {{ username }}</span>
+        <button (click)="logout()">Logout</button>
+      </div>
+    </div>
+  
+    <div class="content">
+      <h2>File New Complaint</h2>
+  
+      <div class="complaint-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="complaintType">Complaint / Service Type:</label>
+            <select id="complaintType" [(ngModel)]="complaintData.complaintType" (change)="onComplaintTypeChange()">
+              <option value="">Select Type</option>
+              <option value="billing">Billing related</option>
+              <option value="voltage">Voltage related</option>
+              <option value="disruption">Frequent disruption</option>
+              <option value="streetlight">Street light related</option>
+              <option value="pole">Pole related</option>
+            </select>
+            <span class="error-message" *ngIf="errors.complaintType">{{ errors.complaintType }}</span>
+          </div>
+  
+          <div class="form-group">
+            <label for="landmark">Landmark:</label>
+            <input type="text" id="landmark" [(ngModel)]="complaintData.landmark" placeholder="Landmark" />
+            <span class="error-message" *ngIf="errors.landmark">{{ errors.landmark }}</span>
+          </div>
+        </div>
+  
+        <div class="form-row">
+          <div class="form-group">
+            <label for="category">Category:</label>
+            <select id="category" [(ngModel)]="complaintData.category">
+              <option value="">Select Category</option>
+              <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+            </select>
+            <span class="error-message" *ngIf="errors.category">{{ errors.category }}</span>
+          </div>
+  
+          <div class="form-group">
+            <label for="consumerNumber">Consumer No:</label>
+            <input type="text" id="consumerNumber" [(ngModel)]="complaintData.consumerNumber" placeholder="Consumer Number" />
+            <span class="error-message" *ngIf="errors.consumerNumber">{{ errors.consumerNumber }}</span>
+          </div>
+        </div>
+  
+        <div class="form-row">
+          <div class="form-group">
+            <label for="contactPerson">Contact Person:</label>
+            <input type="text" id="contactPerson" [(ngModel)]="complaintData.contactPerson" placeholder="Contact Person" />
+            <span class="error-message" *ngIf="errors.contactPerson">{{ errors.contactPerson }}</span>
+          </div>
+  
+          <div class="form-group">
+            <label for="problemDescription">* Problem Description:</label>
+            <textarea id="problemDescription" [(ngModel)]="complaintData.problemDescription" placeholder="Problem Description"></textarea>
+            <span class="error-message" *ngIf="errors.problemDescription">{{ errors.problemDescription }}</span>
+          </div>
+        </div>
+  
+        <div class="form-row">
+          <div class="form-group">
+            <label for="mobileNumber">* Mobile Number:</label>
+            <input type="tel" id="mobileNumber" [(ngModel)]="complaintData.mobileNumber" placeholder="Mobile Number" />
+            <span class="error-message" *ngIf="errors.mobileNumber">{{ errors.mobileNumber }}</span>
+          </div>
+  
+          <div class="form-group">
+            <label for="address">Address:</label>
+            <textarea id="address" [(ngModel)]="complaintData.address" placeholder="Address"></textarea>
+            <span class="error-message" *ngIf="errors.address">{{ errors.address }}</span>
+          </div>
+        </div>
+  
+        <div class="form-buttons">
+          <button (click)="cancel()">Cancel</button>
+          <button (click)="submitComplaint()">Submit Complaint</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

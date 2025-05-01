@@ -1,0 +1,181 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.logo {
+    font-size: 2em;
+    font-weight: 600;
+    color: #00897b;
+}
+
+.menu a {
+    text-decoration: none;
+    margin-left: 25px;
+    color: #424242;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover, .menu a.active {
+    color: #00897b;
+}
+
+.menu a.active {
+    font-weight: 600;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+#logoutButton {
+    margin-left: 15px;
+    padding: 10px 20px;
+    background-color: #e0f2f7;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#logoutButton:hover {
+    background-color: #b2ebf2;
+}
+
+.content {
+    margin-top: 30px;
+}
+
+h2 {
+    color: #00897b;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.payment-method h3 {
+    margin-top: 0;
+    color: #00897b;
+    font-weight: 600;
+}
+
+.card-logos {
+    margin-bottom: 20px;
+}
+
+.card-logo {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.payment-details .form-group {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.payment-details label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    width: 20%;
+}
+
+.payment-details input, select {
+    width: 60%;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    box-sizing: border-box;
+    margin-right: 20px;
+}
+
+.expiration-date {
+    display: flex;
+}
+
+.expiration-date select {
+    width: 48%;
+    margin-right: 4%;
+}
+
+.expiration-date select:last-child {
+    margin-right: 0;
+}
+
+#paymentAmount {
+    font-weight: 600;
+    width: 20%;
+    text-align: right;
+}
+
+.payment-buttons {
+    text-align: right;
+    margin-top: 30px;
+}
+
+#makePayment, #cancelPayment {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+#makePayment {
+    background-color: #ff9800;
+    color: white;
+}
+
+#makePayment:hover {
+    background-color: #f57c00;
+}
+
+#cancelPayment {
+    background-color: #e0f2f7;
+    color: #01579b;
+    margin-left: 10px;
+}
+
+#cancelPayment:hover {
+    background-color: #b2ebf2;
+}
+
+
+.error-message {
+    color: red;
+    font-size: 0.8em;
+    display: block;
+    margin-top: 5px;
+}
+
+#transactionDetails {
+    margin-top: 30px;
+}
+
+#downloadReceipt {
+    margin-top: 20px;
+}

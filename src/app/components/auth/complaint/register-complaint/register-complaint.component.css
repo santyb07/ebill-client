@@ -1,0 +1,155 @@
+
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.logo {
+    font-size: 2em;
+    font-weight: 600;
+    color: #00897b;
+}
+
+.menu a {
+    text-decoration: none;
+    margin-left: 25px;
+    color: #424242;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover, .menu a.active {
+    color: #00897b;
+}
+
+.menu a.active {
+    font-weight: 600;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+#logoutButton {
+    margin-left: 15px;
+    padding: 10px 20px;
+    background-color: #e0f2f7;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#logoutButton:hover {
+    background-color: #b2ebf2;
+}
+
+.content {
+    margin-top: 30px;
+}
+
+h2 {
+    color: #00897b;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.complaint-form .form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.complaint-form .form-group {
+    width: 48%;
+}
+
+.complaint-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+/* Corrected CSS for input, select, textarea */
+.complaint-form input, 
+.complaint-form select, 
+.complaint-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 16px; /* Added font-size for better appearance */
+}
+
+.complaint-form textarea {
+    resize: vertical;
+}
+
+.form-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    justify-items: end;
+    gap: 10px;
+    text-align: right;
+    margin-top: 30px;
+}
+
+#cancelButton, #submitComplaintButton {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+#submitComplaintButton {
+    background-color: #00897b;
+    color: white;
+}
+
+#submitComplaintButton:hover {
+    background-color: #00695c;
+}
+
+#cancelButton {
+    background-color: #e0f2f7;
+    color: #01579b;
+    margin-left: 10px;
+}
+
+#cancelButton:hover {
+    background-color: #b2ebf2;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.8em;
+    display: block;
+    margin-top: 5px;
+}

@@ -1,0 +1,105 @@
+<div class="container register-container">
+    <h2 class="register-heading">Register New User</h2>
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      <div class="section-title"><h3>Consumer Details</h3></div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="consumerNumber">* Consumer Number:</label>
+          <input type="number" id="consumerNumber" formControlName="consumerNumber" placeholder="13 digit number">
+          <span class="error-message" *ngIf="registrationForm.get('consumerNumber')?.invalid && registrationForm.get('consumerNumber')?.touched">
+            Consumer Number must be 13 digits.
+          </span>
+        </div>
+        <div class="form-group">
+          <label for="billNumber">* Bill Number:</label>
+          <input type="number" id="billNumber" formControlName="billNumber" placeholder="Last 5 digits">
+          <span class="error-message" *ngIf="registrationForm.get('billNumber')?.invalid && registrationForm.get('billNumber')?.touched">
+            Bill Number must be 5 digits.
+          </span>
+        </div>
+      </div>
+  
+      <div class="section-title"><h3>User Details</h3></div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="title">* Title:</label>
+          <select id="title" formControlName="title">
+            <option value="">Please Select</option>
+            <option value="Mr.">Mr.</option>
+            <option value="Ms.">Ms.</option>
+            <option value="Mrs.">Mrs.</option>
+          </select>
+          <span class="error-message" *ngIf="registrationForm.get('title')?.invalid && registrationForm.get('title')?.touched">
+            Please select a title.
+          </span>
+        </div>
+        <div class="form-group">
+          <label for="name">* Name:</label>
+          <input type="text" id="name" formControlName="name" placeholder="Max 50 characters" maxlength="50">
+          <span class="error-message" *ngIf="registrationForm.get('name')?.invalid && registrationForm.get('name')?.touched">
+            Name is required.
+          </span>
+        </div>
+        <div class="form-group">
+          <label for="email">* Email Id:</label>
+          <input type="email" id="email" formControlName="email" placeholder="Email address">
+          <span class="error-message" *ngIf="registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched">
+            Invalid email format.
+          </span>
+        </div>
+      </div>
+  
+      <div class="form-row">
+        <div class="form-group">
+          <label for="mobile">* Mobile Number:</label>
+          <select id="countryCode" disabled>
+            <option value="0091">0091 - INDIA</option>
+          </select>
+          <input type="tel" id="mobile" formControlName="mobile" placeholder="10 digits">
+          <span class="error-message" *ngIf="registrationForm.get('mobile')?.invalid && registrationForm.get('mobile')?.touched">
+            Mobile Number must be 10 digits.
+          </span>
+        </div>
+        <div class="form-group">
+          <label for="userId">* User Id:</label>
+          <input type="text" id="userId" formControlName="userId" placeholder="Min 5, Max 20 characters" minlength="5" maxlength="20">
+          <span class="error-message" *ngIf="registrationForm.get('userId')?.invalid && registrationForm.get('userId')?.touched">
+            User ID must be between 5 and 20 characters.
+          </span>
+        </div>
+      </div>
+  
+      <div class="section-title"><h3>Login Details</h3></div>
+      <div class="form-row">
+        <div class="form-group password-group">
+          <label for="password">* Password:</label>
+          <div class="password-input-container">
+            <input [type]="showPassword ? 'text' : 'password'" id="password" formControlName="password" placeholder="Password (Max 30 characters)" maxlength="30">
+            <span class="password-toggle" (click)="togglePassword()">{{ showPassword ? '👁️‍🗨️' : '👁️' }}</span>
+          </div>
+          <span class="error-message" *ngIf="registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched">
+            Password is required (max 30 characters).
+          </span>
+        </div>
+        <div class="form-group password-group">
+          <label for="confirmPassword">* Confirm Password:</label>
+          <div class="password-input-container">
+            <input [type]="showConfirmPassword ? 'text' : 'password'" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm Password (Max 30 characters)" maxlength="30">
+            <span class="password-toggle" (click)="toggleConfirmPassword()">{{ showConfirmPassword ? '👁️‍🗨️' : '👁️' }}</span>
+          </div>
+          <span class="error-message" *ngIf="registrationForm.hasError('mismatch') && registrationForm.get('confirmPassword')?.touched">
+            Passwords do not match.
+          </span>
+        </div>
+      </div>
+  
+      <div class="buttons">
+        <button type="button" id="resetButton" (click)="onReset()">Reset</button>
+        <button type="submit" id="registerButton">Register</button>
+      </div>
+      <div style="display: flex;margin-top: 30px;">
+        <p>Already have an Account? <a routerLink="/login" >Login here</a></p>
+      </div>
+    </form>
+  </div>
+  

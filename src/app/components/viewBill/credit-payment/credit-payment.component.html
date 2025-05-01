@@ -1,0 +1,78 @@
+<div class="container">
+    <div class="header">
+        <div class="logo">Quick EBill</div>
+        <div class="menu">
+            <a href="viewbill.html">Home</a>
+            <a href="viewbill.html">Pay Bill</a>
+            <a href="register-complaint.html">Register Complaint</a>
+            <a href="complaint_status.html">Complaint Status</a>
+        </div>
+        <div class="user-info">
+            <span id="welcomeMessage">{{ username ? 'Welcome ' + username : 'Welcome' }}</span>
+            <button (click)="logout()">Logout</button>
+        </div>
+    </div>
+
+    <div class="content">
+        <h2>Credit Card Payment</h2>
+
+        <div class="payment-method">
+            <h3>Pay by Credit Card</h3>
+            <div class="card-logos">
+                <img src="https://d28wu8o6itv89t.cloudfront.net/images/Visadebitcardpng-1599584312349.png" alt="Visa" class="card-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Mastercard_2019_logo.svg/300px-Mastercard_2019_logo.svg.png" alt="Mastercard" class="card-logo">
+            </div>
+        </div>
+
+        <div class="payment-details">
+            <div class="form-group">
+                <label for="cardNumber">Card Number:</label>
+                <input type="text" id="cardNumber" [(ngModel)]="cardNumber" placeholder="Card Number">
+                <span *ngIf="cardNumberError" class="error-message">{{ cardNumberError }}</span>
+            </div>
+            <div class="form-group">
+                <label for="cardHolderName">Card Holder Name:</label>
+                <input type="text" id="cardHolderName" [(ngModel)]="cardHolderName" placeholder="Card Holder Name">
+                <span *ngIf="cardHolderNameError" class="error-message">{{ cardHolderNameError }}</span>
+            </div>
+            <div class="form-group">
+                <label for="expiryMonth">Expiry Date:</label>
+                <div class="expiration-date">
+                    <select [(ngModel)]="expiryMonth" id="expiryMonth">
+                        <option value="">Month</option>
+                        <option *ngFor="let month of months" [value]="month">{{ month }}</option>
+                    </select>
+                    <select [(ngModel)]="expiryYear" id="expiryYear">
+                        <option value="">Year</option>
+                        <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+                    </select>
+                </div>
+                <span *ngIf="expiryDateError" class="error-message">{{ expiryDateError }}</span>
+            </div>
+            <div class="form-group">
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" [(ngModel)]="cvv" placeholder="CVV">
+                <span *ngIf="cvvError" class="error-message">{{ cvvError }}</span>
+            </div>
+            <div class="form-group">
+                <label>Payment Amount:</label>
+                <span>{{ paymentAmount }}</span>
+            </div>
+        </div>
+
+        <div class="payment-buttons">
+            <button (click)="makePayment()">Make Payment</button>
+            <button (click)="cancelPayment()">Cancel</button>
+        </div>
+
+        <div id="transactionDetails" *ngIf="showTransactionDetails">
+            <h3>Transaction Details</h3>
+            <p><strong>Transaction ID:</strong> {{ transactionId }}</p>
+            <p><strong>Payment Amount:</strong> {{ transactionAmount }}</p>
+            <p><strong>Card Number:</strong> {{ transactionCardNumber }}</p>
+            <p><strong>Card Holder Name:</strong> {{ transactionCardHolderName }}</p>
+            <p><strong>Expiry Date:</strong> {{ transactionExpiryDate }}</p>
+            <button (click)="downloadReceipt()">Download Receipt</button>
+        </div>
+    </div>
+</div>
